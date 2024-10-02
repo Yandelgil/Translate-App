@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>Translate</string>
+    <key>CFBundleIdentifier</key>
+    <string>Yanx.Translate</string>
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Esta aplicación necesita acceso a tus fotos para seleccionar imágenes para traducir.</string>
+    <key>NSOpenPanelUsageDescription</key>
+    <string>Esta aplicación necesita acceso para abrir archivos de imagen.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Esta aplicación necesita acceso al micrófono para traducir lo que dices.</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Esta aplicación necesita acceso al reconocimiento de voz para traducir lo que dices.</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>translator</string>
+            </array>
+        </dict>
+    </array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <key>LSBackgroundOnly</key>
+    <true/> <!-- Ocultar en el Dock -->
+</dict>
+</plist>
