@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine // Importar Combine
 @preconcurrency import WebKit
 import UniformTypeIdentifiers
 import ServiceManagement
@@ -14,15 +15,17 @@ import Speech
 
 struct ContentView: View {
     @AppStorage("launchAtLogin") var launchAtLogin: Bool = false
+    @StateObject private var viewModel = WebViewModel() // Crear instancia del ViewModel
 
     var body: some View {
         VStack {
-            WebView(url: URL(string: "https://translate.google.com/")!)
+            WebView(viewModel: viewModel) // Pasar el ViewModel al WebView
                 .frame(width: 400, height: 500)
-            // https://translate.google.com/
+
             HStack {
                 Button(action: {
-                    NotificationCenter.default.post(name: NSNotification.Name("RefreshWebView"), object: nil)
+                    // Al presionar refrescar, simplemente recarga la URL actual
+                    viewModel.url = URL(string: viewModel.url.absoluteString)!
                 }) {
                     Image(systemName: "arrow.clockwise")
                         .padding(.horizontal, 10)
@@ -72,6 +75,7 @@ struct ContentView: View {
             .padding(.bottom, 20)
         }
         .onAppear {
+            viewModel.url = URL(string: "https://translate.google.com/")! // Asignar la URL inicial
             requestPermissions()
         }
     }
@@ -81,7 +85,8 @@ struct ContentView: View {
         dataStore.fetchDataRecords(ofTypes: [WKWebsiteDataTypeCookies]) { records in
             dataStore.removeData(ofTypes: [WKWebsiteDataTypeCookies], for: records) {
                 print("Cookies borradas")
-                NotificationCenter.default.post(name: NSNotification.Name("RefreshWebView"), object: nil)
+                // Volver a cargar la URL después de borrar las cookies
+                viewModel.url = URL(string: viewModel.url.absoluteString)!
             }
         }
     }

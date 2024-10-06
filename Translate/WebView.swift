@@ -6,11 +6,20 @@
 //
 
 import SwiftUI
+import Combine // Importar Combine
 @preconcurrency import WebKit
 import UniformTypeIdentifiers
 
+class WebViewModel: ObservableObject {
+    @Published var url: URL // URL publicada
+
+    init(url: URL = URL(string: "https://translate.google.com/")!) { // Inicializador con valor predeterminado
+        self.url = url
+    }
+}
+
 struct WebView: NSViewRepresentable {
-    let url: URL
+    @ObservedObject var viewModel: WebViewModel // Usar el ViewModel
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -42,7 +51,7 @@ struct WebView: NSViewRepresentable {
         // Configurar permisos de medios
         webView.configuration.mediaTypesRequiringUserActionForPlayback = []
 
-        let request = URLRequest(url: url)
+        let request = URLRequest(url: viewModel.url) // Usar el ViewModel para cargar la URL
         webView.load(request)
 
         // Agregar observador para refrescar el WebView
@@ -54,10 +63,13 @@ struct WebView: NSViewRepresentable {
     }
 
     func updateNSView(_ nsView: WKWebView, context: Context) {
-        // No es necesario realizar actualizaciones adicionales
+        // Actualizar la vista si la URL cambia
+        if nsView.url != viewModel.url {
+            let request = URLRequest(url: viewModel.url)
+            nsView.load(request)
+        }
     }
 
-    // Agregar @preconcurrency aquí para suprimir advertencias
     @preconcurrency
     class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
         let parent: WebView
