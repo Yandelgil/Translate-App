@@ -13,7 +13,7 @@ Translate App es una sencilla pero poderosa aplicación para macOS que te permit
 - ⚙️ Opción para abrir la aplicación al inicio.
 - 🖼️ Gestión de cookies integrada para una experiencia más fluida.
 - 🛠️ Código optimizado con el nuevo modelo de concurrencia de Swift.
-- 🎙️ La aplicación puede traducir lo que dices. (Necesita permisos de micrófono y reconocimiento de voz)
+- 🎙️ La aplicación puede traducir lo que dices. (Necesita permisos de micrófono y reconocimiento de voz. Google requiere que inicies sesión para usar la traducción por voz)
 
 ## 🛠️ Instalación
 
