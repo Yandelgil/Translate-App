@@ -4,23 +4,22 @@
 ![Swift](https://img.shields.io/badge/Swift-5.5-orange)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-Translate App es una sencilla pero poderosa aplicación para macOS que te permite acceder rápidamente a Google Translate desde la barra de estado. La app está diseñada para ser discreta, eficiente y fácil de usar.
+Translate App is a simple yet powerful macOS application that allows you to quickly access Google Translate from the status bar. The app is designed to be discreet, efficient, and user-friendly.
 
-## 🚀 Características
+## 🚀 Features
 
-- 🌍 Acceso rápido a [Google Translate](https://translate.google.com/) desde la barra de estado.
-- 📂 Capacidad de abrir imágenes para traducir texto desde ellas.
-- ⚙️ Opción para abrir la aplicación al inicio.
-- 🖼️ Gestión de cookies integrada para una experiencia más fluida.
-- 🛠️ Código optimizado con el nuevo modelo de concurrencia de Swift.
-- 🎙️ La aplicación puede traducir lo que dices. (Necesita permisos de micrófono y reconocimiento de voz. Google requiere que inicies sesión para usar la traducción por voz)
+- 🌍 Quick access to [Google Translate](https://translate.google.com/) from the status bar.
+- 📂 Ability to open images to translate text from them.
+- ⚙️ Option to launch the app at startup.
+- 🖼️ Integrated cookie management for a smoother experience.
+- 🛠️ Optimized code using Swift's new concurrency model.
+- 🎙️ The app can translate what you say (requires microphone and speech recognition permissions; Google requires you to sign in to use voice translation).
 
-## 🛠️ Instalación
+## 🛠️ Installation
 
-- 📲 Mueva la aplicación a la carpeta de aplicaciones. (Si aparece una advertencia, simplemente vaya a Privacidad y seguridad y permita que la aplicación se ejecute)
+- 📲 Move the app to the Applications folder (If you see a warning, simply go to Privacy and Security settings and allow the app to run).
 
-## ❌ Limitaciones actuales
+## ❌ Current Limitations
 
-- ❌ No permite la descarga de archivos.
-
+- ❌ File downloads are not supported.
 
